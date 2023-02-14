@@ -27,11 +27,17 @@ jobs:
       - name: Run styles lint and format check
         run: npm run lint:css
       - name: "Hello world when it's Monday"
-        run: echo "Hello $FIRST_NAME $MIDDLE_NAME $LAST_NAME, today is Monday!"
+        run: echo "Hello $FIRST_NAME $MIDDLE_NAME $LAST_NAME, today is Monday! 🎉"
         env:
           FIRST_NAME: Mona
           MIDDLE_NAME: The
           LAST_NAME: Octocat
+      - name: "This is a secret 🤫"
+        run: echo "Hello $FIRST_NAME $MIDDLE_NAME, this is a secret 🤫 $SECRET"
+        env:
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          SECRET: ${{secrets.PASSWORD}}
   deploy:
     needs: build
     runs-on: ubuntu-latest

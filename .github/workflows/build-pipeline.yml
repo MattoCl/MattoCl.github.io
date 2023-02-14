@@ -22,8 +22,10 @@ jobs:
       # Step 3 - Add tests and linting here
       - name: Run tests
         run: npm run test
-      - name: Run linting
-        run: npm run lint
+      - name: Run typescript lint and format check
+        run: npm run lint:ts
+      - name: Run styles lint and format check
+        run: npm run lint:css
   deploy:
     needs: build
     runs-on: ubuntu-latest
